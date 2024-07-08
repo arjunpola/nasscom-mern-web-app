@@ -1,0 +1,17 @@
+{
+  "name": "mern-web-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd controller && npm run start\" \"cd view && npm start\"",
+    "install": "concurrently \"cd controller && npm install\" \"cd view && npm install\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
