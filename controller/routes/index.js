@@ -10,19 +10,7 @@ router.get('/', function (req, res, next) {
 
 //Create the new product
 router.post("/create", async (req, res) => {
-  const newProduct = new Product({
-    title: req.body.title,
-    description: req.body.description,
-    price: req.body.price,
-    discountPercentage: req.body.discountPercentage,
-    rating: req.body.rating,
-    stock: req.body.stock,
-    brand: req.body.brand,
-    category: req.body.category,
-    thumbnail: req.body.thumbnail,
-    image: req.body.image,
-  });
-
+  const newProduct = new Product(req.body.data);
   await Product.create(newProduct);
   res.send("Product saved to the database!");
 });
