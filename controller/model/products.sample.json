@@ -1,0 +1,38 @@
+[
+  {
+    "title": "iPhone",
+    "description": "One of the most advanced smartphone!",
+    "price": 70000,
+    "discountPercentage": 10,
+    "rating": 4.8,
+    "stock": 8,
+    "brand": "Apple",
+    "category": "Smartphone",
+    "thumbnail": "Thumbnail URL",
+    "image": "Image URL"
+  },
+  {
+    "title": "Galaxy",
+    "description": "Extremely advanced Android OS smartphone!",
+    "price": 50000,
+    "discountPercentage": 10,
+    "rating": 4.8,
+    "stock": 4,
+    "brand": "Samsung",
+    "category": "Smartphone",
+    "thumbnail": "Thumbnail URL",
+    "image": "Image URL"
+  },
+  {
+    "title": "XBox",
+    "description": "A wornderful gaming console!",
+    "price": 90000,
+    "discountPercentage": 10,
+    "rating": 4.8,
+    "stock": 4,
+    "brand": "Microsoft",
+    "category": "Gaming Console",
+    "thumbnail": "Thumbnail URL",
+    "image": "Image URL"
+  }
+]
