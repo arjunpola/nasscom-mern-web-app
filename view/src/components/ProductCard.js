@@ -1,14 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import { useNavigate } from "react-router";
+
+import axios from "axios";
 
 const ProductCard = (props) => {
+    const navigate = useNavigate();
     const [product, setProduct] = useState(props.product);
+
+    const handleUpdate = (id) => {
+        navigate("/update/" + id);
+    };
+
+    const handleDelete = async (id) => {
+        try {
+            const response = await axios.delete("/delete/" + id);
+            console.log(response.data);
+            if (response.data === "Product deleted!") {
+                props.getProduct();
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
     return (
         <React.Fragment>
@@ -54,8 +76,28 @@ const ProductCard = (props) => {
                         </Stack>
                     </Stack>
                 </CardContent>
-            </Card>
-        </React.Fragment>
+
+                <CardActions>
+                    <Stack direction="row" gap={2}>
+                        <Button
+                            color="primary"
+                            variant="contained"
+                            onClick={() => handleUpdate(product._id)}
+                        >
+                            Update
+                        </Button>
+                        <Button
+                            color="error"
+                            variant="contained"
+                            onClick={() => handleDelete(product._id)}
+                        >
+                            Delete
+                        </Button>
+                    </Stack>
+                </CardActions>
+
+            </Card >
+        </React.Fragment >
     );
 };
 

@@ -4,8 +4,10 @@ var router = express.Router();
 var { Product } = require('../model/products');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/get/:id', async (req, res) => {
+  const product_id = req.params.id;
+  const productInfo = await Product.findById(product_id);
+  res.json(productInfo);
 });
 
 //Create the new product
